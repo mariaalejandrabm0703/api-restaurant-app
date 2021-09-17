@@ -1,0 +1,13 @@
+{
+    "type":"mysql",
+    "username":"root",
+    "password":"0000",
+    "host":"localhost",
+    "port":3306,
+    "database":"restaurant",
+    "entities":["dist/**/*.entidad{.ts,.js}"],
+    "migrations": ["dist/infraestructura/migraciones/*.js"],
+    "cli": {
+        "migrationsDir": "dist/infraestructura/migraciones"
+    }
+}
