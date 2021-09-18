@@ -60,7 +60,7 @@ export class MigracionPedidoProducto1631964945935 implements MigrationInterface 
               referencedTableName: "pedido",
               onDelete: "CASCADE"
           });
-          await queryRunner.createForeignKey("pedidoProducto", foreignKey)
+          await queryRunner.createForeignKey("pedido_producto", foreignKey)
 
           const foreignKey2 = new TableForeignKey({
             columnNames: ["idProducto"],
@@ -68,11 +68,11 @@ export class MigracionPedidoProducto1631964945935 implements MigrationInterface 
             referencedTableName: "producto",
             onDelete: "CASCADE"
         });
-        await queryRunner.createForeignKey("pedidoProducto", foreignKey2)
+        await queryRunner.createForeignKey("pedido_producto", foreignKey2)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query('DROP TABLE `pedidoProducto`', undefined);
+        await queryRunner.query('DROP TABLE `pedido_producto`', undefined);
     }
 
 }

@@ -25,7 +25,7 @@ export class MigracionCliente1631905576686 implements MigrationInterface {
               isNullable: false,
             },
             {
-              name: 'phone',
+              name: 'telefono',
               type: 'varchar(10)',
               isNullable: false,
             },
