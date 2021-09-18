@@ -13,7 +13,7 @@ export class DaoClienteMysql implements DaoCliente {
 
   async listar(): Promise<ClienteDto[]> {
     return this.entityManager.query(
-      'SELECT u.nombre, u.fechaCreacion FROM cliente u',
+      'SELECT u.id, u.identificacion,u.activo, u.nombre, u.fechaCreacion FROM cliente u',
     );
   }
 }
