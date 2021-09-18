@@ -8,7 +8,7 @@ export class ServicioRegistrarCliente {
   }
 
   async ejecutar(cliente: Cliente) {
-    if (await this._repositorioCliente.existeNombreCliente(cliente.nombre)) {
+    if (await this._repositorioCliente.existeNombreCliente(cliente.identificacion)) {
       throw new ErrorDeNegocio(
         `El nombre de usuario ${cliente.nombre} ya existe`,
       );

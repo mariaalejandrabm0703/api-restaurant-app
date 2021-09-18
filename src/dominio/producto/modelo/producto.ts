@@ -2,10 +2,10 @@ export class Producto {
   readonly #descripcion: string;
   readonly #categoria: string;
   readonly #precio: number;
-  readonly #activo: boolean;
+  readonly #activo: string;
   readonly #fechaCreacion: Date;
 
-  constructor(descripcion: string, categoria: string, precio: number, activo: boolean, fechaCreacion: string) {
+  constructor(descripcion: string, categoria: string, precio: number, activo: string, fechaCreacion: string) {
     this.#descripcion = descripcion;
     this.#categoria = categoria;
     this.#precio = precio;
@@ -22,7 +22,7 @@ export class Producto {
   get precio(): number {
     return this.#precio;
   }
-  get activo(): boolean {
+  get activo(): string {
     return this.#activo;
   }
   get fechaCreacion(): Date {

@@ -7,21 +7,21 @@ export class ComandoRegistrarCliente {
   public nombre: string;
 
   @IsString()
-  @ApiProperty({ minLength: 4, example: '1234' })
+  @ApiProperty({ example: '1234' })
   public identificacion: string;
 
   @IsString()
-  @ApiProperty({ minLength: 4, example: '1234' })
+  @ApiProperty({ example: '1234' })
   public telefono: string;
 
 
   @IsString()
-  @ApiProperty({ minLength: 50, example: 'algo@algo.com' })
+  @ApiProperty({example: 'algo@algo.com' })
   public email: string;
 
 
   @IsString()
-  @ApiProperty({ minLength: 1, example: '1' })
+  @ApiProperty({ example: '1' })
   public activo: string;
 
   @IsDateString()

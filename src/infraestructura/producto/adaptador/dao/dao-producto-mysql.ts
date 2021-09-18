@@ -13,7 +13,7 @@ export class DaoProductoMysql implements DaoProducto {
 
   async listar(): Promise<ProductoDto[]> {
     return this.entityManager.query(
-      'SELECT p.descripcion, p.precio, p.categoria FROM PRODUCTO p WHERE p.activo = true',
+      'SELECT p.descripcion, p.precio, p.categoria FROM PRODUCTO p WHERE p.activo = 1',
     );
   }
 }

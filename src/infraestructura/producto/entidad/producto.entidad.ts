@@ -15,7 +15,7 @@ export class ProductoEntidad {
   precio: number;
 
   @Column()
-  activo: boolean;
+  activo: string;
 
   @Column()
   fechaCreacion: Date;

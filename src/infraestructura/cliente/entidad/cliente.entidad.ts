@@ -18,7 +18,7 @@ export class ClienteEntidad {
   email: string;
 
   @Column()
-  activo: boolean;
+  activo: string;
 
   @Column()
   fechaCreacion: Date;
