@@ -9,6 +9,7 @@ import { AppLogger } from './configuracion/ceiba-logger.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { NodeEnv } from './configuracion/environment/env-node.enum';
 import { databaseConfigFactory } from './configuracion/database.config';
+import { PedidoProductoModule } from './pedido-producto/pedido-producto.module';
 
 @Module({
   providers: [AppLogger],
@@ -30,6 +31,7 @@ import { databaseConfigFactory } from './configuracion/database.config';
     ProductoModule,
     ClienteModule,
     PedidoModule,
+    PedidoProductoModule
   ],
 })
 export class InfraestructuraModule {
