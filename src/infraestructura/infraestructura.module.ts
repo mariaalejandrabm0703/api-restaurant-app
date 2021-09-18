@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { UsuarioModule } from './usuario/usuario.module';
 import { ProductoModule } from './producto/producto.module';
 import { ClienteModule } from './cliente/cliente.module';
+import { PedidoModule } from './pedido/pedido.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppLogger } from './configuracion/ceiba-logger.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -28,6 +29,7 @@ import { databaseConfigFactory } from './configuracion/database.config';
     UsuarioModule,
     ProductoModule,
     ClienteModule,
+    PedidoModule,
   ],
 })
 export class InfraestructuraModule {
