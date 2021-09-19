@@ -10,4 +10,8 @@ export class ManejadorListarPedido {
   async ejecutar(): Promise<PedidoDto[]> {
     return this._daoPedido.listar();
   }
+
+  async buscar(id: number): Promise<PedidoDto> {
+    return this._daoPedido.buscar(id);
+  }
 }

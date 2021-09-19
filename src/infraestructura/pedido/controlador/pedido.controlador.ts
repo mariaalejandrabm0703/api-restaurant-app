@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Post, UsePipes, ValidationPipe, Param } from '@nestjs/common';
 import { ComandoRegistrarPedido } from 'src/aplicacion/pedido/comando/registrar-pedido.comando';
 import { ManejadorRegistrarPedido } from 'src/aplicacion/pedido/comando/registar-pedido.manejador';
 import { ManejadorListarPedido } from 'src/aplicacion/pedido/consulta/listar-pedidos.manejador';
@@ -34,8 +34,8 @@ export class PedidoControlador {
     return idPedido;
   }
 
-  // @Get()
-  // async listar(): Promise<PedidoDto[]> {
-  //   return this._manejadorListarPedido.ejecutar();
-  // }
+  @Get(':id')
+  async buscarPedido(@Param() params): Promise<PedidoDto> {
+    return await this._manejadorListarPedido.buscar(params.id);
+  }
 }

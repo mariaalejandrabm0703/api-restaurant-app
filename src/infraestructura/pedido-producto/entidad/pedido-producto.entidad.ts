@@ -1,10 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Column, Entity, PrimaryGeneratedColumn,  } from 'typeorm';
 
 @Entity({ name: 'pedido_producto' })
 export class PedidoProductoEntidad {
   @PrimaryGeneratedColumn()
   id: number;
-
+  
   @Column()
   idPedido: number;
 

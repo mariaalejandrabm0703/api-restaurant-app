@@ -16,4 +16,8 @@ export class DaoPedidoMysql implements DaoPedido {
       'SELECT u.id, u.precio, u.idCliente, u.fechaCreacion FROM pedido u',
     );
   }
+
+  async buscar(id: number): Promise<PedidoDto> {
+    return this.entityManager.findOne('pedido', id)
+  }
 }
