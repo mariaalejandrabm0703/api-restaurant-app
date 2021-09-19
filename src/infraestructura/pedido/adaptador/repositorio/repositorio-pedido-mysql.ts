@@ -12,12 +12,14 @@ export class RepositorioPedidoMysql implements RepositorioPedido {
     private readonly repositorio: Repository<PedidoEntidad>,
   ) {}
 
-  async guardar(pedido: Pedido) {
+  async guardar(pedido: Pedido): Promise<number>{
     const entidad = new PedidoEntidad();
     entidad.idCliente = pedido.idCliente;
     entidad.fechaCreacion = pedido.fechaCreacion;
     entidad.precio = pedido.precio;
     entidad.activo = pedido.activo;
-    await this.repositorio.save(entidad);
+    const ped = await this.repositorio.save(entidad);
+    console.log(ped.id)
+    return ped.id;
   }
 }
