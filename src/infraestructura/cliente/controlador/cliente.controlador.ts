@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Post, UsePipes, ValidationPipe, Param } from '@nestjs/common';
 import { ComandoRegistrarCliente } from 'src/aplicacion/cliente/comando/registrar-cliente.comando';
 import { ManejadorRegistrarCliente } from 'src/aplicacion/cliente/comando/registar-cliente.manejador';
 import { ManejadorListarCliente } from 'src/aplicacion/cliente/consulta/listar-clientes.manejador';
@@ -13,12 +13,18 @@ export class ClienteControlador {
 
   @Post()
   @UsePipes(new ValidationPipe({ transform: true }))
-  async crear(@Body() comandoRegistrarCliente: ComandoRegistrarCliente) {
-    await this._manejadorRegistrarCliente.ejecutar(comandoRegistrarCliente);
+  async crear(@Body() comandoRegistrarCliente: ComandoRegistrarCliente): Promise <number> {
+   return await this._manejadorRegistrarCliente.ejecutar(comandoRegistrarCliente);
   }
 
-  @Get()
-  async listar(): Promise<ClienteDto[]> {
-    return this._manejadorListarCliente.ejecutar();
+  @Get(':id')
+  async buscarCliente(@Param() params): Promise<ClienteDto> {
+    console.log(params.id);
+    return this._manejadorListarCliente.buscar(params.id);
   }
+
+  // @Get()
+  // async listar(): Promise<ClienteDto[]> {
+  //   return this._manejadorListarCliente.ejecutar();
+  // }
 }

@@ -7,12 +7,12 @@ export class ServicioRegistrarCliente {
   constructor(private readonly _repositorioCliente: RepositorioCliente) {
   }
 
-  async ejecutar(cliente: Cliente) {
+  async ejecutar(cliente: Cliente): Promise<number>{
     if (await this._repositorioCliente.existeNombreCliente(cliente.identificacion)) {
       throw new ErrorDeNegocio(
         `El usuario ${cliente.nombre} ya existe`,
       );
     }
-    await this._repositorioCliente.guardar(cliente);
+    return await this._repositorioCliente.guardar(cliente);
   }
 }

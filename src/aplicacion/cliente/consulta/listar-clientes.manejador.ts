@@ -10,4 +10,7 @@ export class ManejadorListarCliente {
   async ejecutar(): Promise<ClienteDto[]> {
     return this._daoUsuario.listar();
   }
+  async buscar(id: number): Promise<ClienteDto> {
+    return this._daoUsuario.buscar(id);
+  }
 }

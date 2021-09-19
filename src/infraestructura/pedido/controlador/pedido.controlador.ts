@@ -34,8 +34,8 @@ export class PedidoControlador {
     return idPedido;
   }
 
-  @Get()
-  async listar(): Promise<PedidoDto[]> {
-    return this._manejadorListarPedido.ejecutar();
-  }
+  // @Get()
+  // async listar(): Promise<PedidoDto[]> {
+  //   return this._manejadorListarPedido.ejecutar();
+  // }
 }

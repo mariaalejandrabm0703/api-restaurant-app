@@ -16,13 +16,14 @@ export class RepositorioClienteMysql implements RepositorioCliente {
     return (await this.repositorio.count({ identificacion })) > 0;
   }
 
-  async guardar(cliente: Cliente) {
+  async guardar(cliente: Cliente): Promise<number> {
     const entidad = new ClienteEntidad();
     entidad.identificacion = cliente.identificacion;
     entidad.nombre = cliente.nombre;
     entidad.telefono = cliente.telefono;
     entidad.email = cliente.email;
     entidad.activo = cliente.activo;
-    await this.repositorio.save(entidad);
+    const cli = await this.repositorio.save(entidad);
+    return cli.id;
   }
 }
