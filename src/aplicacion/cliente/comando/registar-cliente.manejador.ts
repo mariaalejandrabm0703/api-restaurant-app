@@ -12,7 +12,6 @@ export class ManejadorRegistrarCliente {
       new Cliente(
         comandoRegistrarCliente.nombre,
         comandoRegistrarCliente.identificacion,
-        comandoRegistrarCliente.fechaCreacion,
         comandoRegistrarCliente.telefono,
         comandoRegistrarCliente.email,
         comandoRegistrarCliente.activo,        

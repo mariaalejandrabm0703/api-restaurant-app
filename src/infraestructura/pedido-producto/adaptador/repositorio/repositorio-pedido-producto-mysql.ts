@@ -19,7 +19,6 @@ export class RepositorioPedidoProductoMysql implements RepositorioPedidoProducto
     entidad.cantidad = producto.cantidad;
     entidad.precio = producto.precio;
     entidad.activo = producto.activo;
-    entidad.fechaCreacion = producto.fechaCreacion;
     await this.repositorio.save(entidad);
   }
 }

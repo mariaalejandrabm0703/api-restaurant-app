@@ -1,4 +1,4 @@
-import { IsDateString, IsString } from 'class-validator';
+import { IsDateString, IsString, IsArray } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class ComandoRegistrarPedido {
@@ -14,7 +14,10 @@ export class ComandoRegistrarPedido {
   @ApiProperty({ example: '1' })
   public activo: string;
 
-  @IsDateString()
-  @ApiProperty({ type: Date })
-  public fechaCreacion: string;
+  @IsArray()
+  public productos: [{
+    idProducto: number,
+    cantidad: number,
+    precio: number
+  }]
 }

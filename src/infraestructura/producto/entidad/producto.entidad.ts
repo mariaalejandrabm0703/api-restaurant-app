@@ -16,7 +16,4 @@ export class ProductoEntidad {
 
   @Column()
   activo: string;
-
-  @Column()
-  fechaCreacion: Date;
 }

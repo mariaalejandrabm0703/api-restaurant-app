@@ -4,15 +4,13 @@ export class PedidoProducto {
   readonly #cantidad: number;
   readonly #precio: number;
   readonly #activo: string;
-  readonly #fechaCreacion: Date;
 
-  constructor(idPedido: number, idProducto: number, cantidad: number, precio: number, activo: string, fechaCreacion: string) {
+  constructor(idPedido: number, idProducto: number, cantidad: number, precio: number, activo: string) {
     this.#idPedido = idPedido;
     this.#idProducto = idProducto;
     this.#cantidad = cantidad;
     this.#precio = precio;
     this.#activo = activo;
-    this.#fechaCreacion = new Date(fechaCreacion);
   }
 
   get idPedido(): number {
@@ -34,8 +32,5 @@ export class PedidoProducto {
   get activo(): string {
     return this.#activo;
   }
-
-  get fechaCreacion(): Date {
-    return this.#fechaCreacion;
-  }
+  
 }

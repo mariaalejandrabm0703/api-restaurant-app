@@ -13,7 +13,4 @@ export class ClienteDto {
 
   @ApiProperty({ example: 'algo@algo.com' })
   email: string;
-
-  @ApiProperty({ type: Date })
-  fechaCreacion: string;
 }

@@ -19,7 +19,4 @@ export class PedidoProductoEntidad {
 
   @Column()
   activo: string;
-
-  @Column()
-  fechaCreacion: Date;
 }

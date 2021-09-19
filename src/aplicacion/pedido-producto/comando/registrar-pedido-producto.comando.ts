@@ -21,8 +21,4 @@ export class ComandoRegistrarPedidoProducto {
   @IsString()
   @ApiProperty({example: '1' })
   public activo: string;
-
-  @IsDateString()
-  @ApiProperty({ type: Date })
-  public fechaCreacion: string;
 }

@@ -7,18 +7,18 @@ import { PedidoProductoDto } from 'src/aplicacion/pedido-producto/consulta/dto/p
 @Controller('pedidoProductos')
 export class PedidoProductoControlador {
   constructor(
-    private readonly _manejadorRegistrarUsuario: ManejadorRegistrarPedidoProducto,
-    private readonly _manejadorListarUsuario: ManejadorListarPedidoProducto,
+    private readonly _manejadorRegistrarPedidoProducto: ManejadorRegistrarPedidoProducto,
+    private readonly _manejadorListarPedidoProducto: ManejadorListarPedidoProducto,
   ) {}
 
   @Post()
   @UsePipes(new ValidationPipe({ transform: true }))
-  async crear(@Body() comandoRegistrarUsuario: ComandoRegistrarPedidoProducto) {
-    await this._manejadorRegistrarUsuario.ejecutar(comandoRegistrarUsuario);
+  async crear(@Body() comandoRegistrarPedidoProducto: ComandoRegistrarPedidoProducto) {
+    await this._manejadorRegistrarPedidoProducto.ejecutar(comandoRegistrarPedidoProducto);
   }
 
   @Get()
   async listar(): Promise<PedidoProductoDto[]> {
-    return this._manejadorListarUsuario.ejecutar();
+    return this._manejadorListarPedidoProducto.ejecutar();
   }
 }

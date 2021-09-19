@@ -23,8 +23,4 @@ export class ComandoRegistrarCliente {
   @IsString()
   @ApiProperty({ example: '1' })
   public activo: string;
-
-  @IsDateString()
-  @ApiProperty({ type: Date })
-  public fechaCreacion: string;
 }

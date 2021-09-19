@@ -13,7 +13,4 @@ export class ProductoDto {
 
   @ApiProperty({ example:'1'})
   activo: string;
-
-  @ApiProperty({ example: '01/01/2021' })
-  fechaCreacion: Date;
 }

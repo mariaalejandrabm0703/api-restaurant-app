@@ -10,7 +10,4 @@ export class PedidoDto {
 
   @ApiProperty({ example: '1' })
   activo: string;
-
-  @ApiProperty({ type: Date })
-  fechaCreacion: string;
 }

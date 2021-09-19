@@ -19,7 +19,6 @@ export class RepositorioClienteMysql implements RepositorioCliente {
   async guardar(cliente: Cliente) {
     const entidad = new ClienteEntidad();
     entidad.identificacion = cliente.identificacion;
-    entidad.fechaCreacion = cliente.fechaCreacion;
     entidad.nombre = cliente.nombre;
     entidad.telefono = cliente.telefono;
     entidad.email = cliente.email;

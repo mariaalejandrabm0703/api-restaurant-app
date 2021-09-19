@@ -15,11 +15,9 @@ export class RepositorioPedidoMysql implements RepositorioPedido {
   async guardar(pedido: Pedido): Promise<number>{
     const entidad = new PedidoEntidad();
     entidad.idCliente = pedido.idCliente;
-    entidad.fechaCreacion = pedido.fechaCreacion;
     entidad.precio = pedido.precio;
     entidad.activo = pedido.activo;
     const ped = await this.repositorio.save(entidad);
-    console.log(ped.id)
     return ped.id;
   }
 }

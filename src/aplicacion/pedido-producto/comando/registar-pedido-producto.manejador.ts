@@ -14,8 +14,7 @@ export class ManejadorRegistrarPedidoProducto {
         comandoRegistrarPedidoProducto.idProducto,
         comandoRegistrarPedidoProducto.cantidad,
         comandoRegistrarPedidoProducto.precio,
-        comandoRegistrarPedidoProducto.activo,
-        comandoRegistrarPedidoProducto.fechaCreacion,
+        comandoRegistrarPedidoProducto.activo
       ),
     );
   }

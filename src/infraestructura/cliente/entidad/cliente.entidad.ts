@@ -19,7 +19,4 @@ export class ClienteEntidad {
 
   @Column()
   activo: string;
-
-  @Column()
-  fechaCreacion: Date;
 }

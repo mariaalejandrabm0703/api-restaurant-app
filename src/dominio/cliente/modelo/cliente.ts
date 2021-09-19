@@ -4,15 +4,13 @@ export class Cliente {
   readonly #telefono: string;
   readonly #email: string;
   readonly #activo: string;
-  readonly #fechaCreacion: Date;
 
-  constructor(nombre: string, identificacion: string, fechaCreacion: string, telefono: string, email: string, activo: string,) {
+  constructor(nombre: string, identificacion: string, telefono: string, email: string, activo: string,) {
     this.#nombre = nombre;
     this.#identificacion = identificacion;
     this.#telefono = telefono;
     this.#email = email;
     this.#activo = activo;
-    this.#fechaCreacion = new Date(fechaCreacion);
   }
 
   get nombre(): string {
@@ -33,9 +31,5 @@ export class Cliente {
 
   get activo(): string {
     return this.#activo;
-  }
-
-  get fechaCreacion(): Date {
-    return this.#fechaCreacion;
   }
 }
