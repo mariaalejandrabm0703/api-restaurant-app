@@ -2,4 +2,5 @@ import { PedidoProductoDto } from 'src/aplicacion/pedido-producto/consulta/dto/p
 
 export abstract class DaoPedidoProducto {
   abstract async listar(): Promise<PedidoProductoDto[]>;
+  abstract async buscar(id: number): Promise<any[]>;
 }

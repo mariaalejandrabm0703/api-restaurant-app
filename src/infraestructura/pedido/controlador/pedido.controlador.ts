@@ -5,12 +5,14 @@ import { ManejadorListarPedido } from 'src/aplicacion/pedido/consulta/listar-ped
 import { PedidoDto } from 'src/aplicacion/pedido/consulta/dto/pedido.dto';
 import { ManejadorRegistrarPedidoProducto } from 'src/aplicacion/pedido-producto/comando/registar-pedido-producto.manejador';
 import { ComandoRegistrarPedidoProducto } from 'src/aplicacion/pedido-producto/comando/registrar-pedido-producto.comando';
+import { ManejadorListarPedidoProducto } from 'src/aplicacion/pedido-producto/consulta/listar-pedido-productos.manejador';
 
 @Controller('pedidos')
 export class PedidoControlador {
   constructor(
     private readonly _manejadorRegistrarPedido: ManejadorRegistrarPedido,
     private readonly _manejadorListarPedido: ManejadorListarPedido,
+    private readonly _manejadorListarPedidoProducto : ManejadorListarPedidoProducto,
     private readonly _manejadorRegistrarPedidoProducto: ManejadorRegistrarPedidoProducto,
   ) {}
 
@@ -35,7 +37,16 @@ export class PedidoControlador {
   }
 
   @Get(':id')
-  async buscarPedido(@Param() params): Promise<PedidoDto> {
-    return await this._manejadorListarPedido.buscar(params.id);
+  async buscarPedido(@Param() params): Promise<any> {
+    const pedido = await this._manejadorListarPedido.buscar(params.id);
+
+    const productos = await this._manejadorListarPedidoProducto.buscar(params.id);
+
+    const response = {
+      pedido : pedido,
+      productos: productos
+    }
+
+    return response;
   }
 }
