@@ -9,4 +9,8 @@ export class ServicioRegistrarPedidoProducto {
   async ejecutar(pedidoProducto: PedidoProducto) {
      await this._repositorioPedidoProducto.guardar(pedidoProducto);
   }
+
+  async eliminar(id: number) {
+    await this._repositorioPedidoProducto.eliminar(id);
+ }
 }

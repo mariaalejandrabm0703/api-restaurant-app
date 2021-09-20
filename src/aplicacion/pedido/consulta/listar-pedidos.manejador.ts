@@ -13,5 +13,5 @@ export class ManejadorListarPedido {
 
   async buscar(id: number): Promise<PedidoDto> {
     return this._daoPedido.buscar(id);
-  }
+  }  
 }

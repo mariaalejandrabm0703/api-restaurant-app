@@ -18,4 +18,8 @@ export class ManejadorRegistrarPedidoProducto {
       ),
     );
   }
+
+  async eliminar(id: number){
+    await this._servicioRegistrarPedidoProducto.eliminar(id);
+  }
 }

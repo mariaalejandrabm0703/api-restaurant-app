@@ -8,4 +8,8 @@ export class ServicioRegistrarPedido {
   async ejecutar(pedido: Pedido): Promise<number> {    
     return await this._repositorioPedido.guardar(pedido);
   }
+
+  async actualizar(id:number, precio: number, activo: string): Promise<number> {    
+    return await this._repositorioPedido.actualizar(id, precio, activo);
+  }
 }

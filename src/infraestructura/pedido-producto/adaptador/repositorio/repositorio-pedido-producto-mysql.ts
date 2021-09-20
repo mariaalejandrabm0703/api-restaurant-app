@@ -21,4 +21,8 @@ export class RepositorioPedidoProductoMysql implements RepositorioPedidoProducto
     entidad.activo = producto.activo;
     await this.repositorio.save(entidad);
   }
+
+  async eliminar(id: number){
+    await this.repositorio.delete({idPedido: id});
+  }
 }
