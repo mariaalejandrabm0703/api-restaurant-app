@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { PedidoEntidad } from '../../entidad/pedido.entidad';
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
+import { ClienteEntidad } from 'src/infraestructura/cliente/entidad/cliente.entidad';
 
 @Injectable()
 export class RepositorioPedidoMysql implements RepositorioPedido {
@@ -14,7 +15,7 @@ export class RepositorioPedidoMysql implements RepositorioPedido {
 
   async guardar(pedido: Pedido): Promise<number>{
     const entidad = new PedidoEntidad();
-    entidad.idCliente = pedido.idCliente;
+    // entidad.cliente = new ClienteEntidad();
     entidad.precio = pedido.precio;
     entidad.activo = pedido.activo;
     entidad.fechaEntrega = pedido.fechaEntrega;

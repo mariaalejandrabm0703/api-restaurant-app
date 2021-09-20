@@ -12,8 +12,9 @@ export class ManejadorRegistrarPedido {
       new Pedido(
         comandoRegistrarPedido.precio,
         comandoRegistrarPedido.activo,
-        comandoRegistrarPedido.idCliente,
-        comandoRegistrarPedido.fechaEntrega
+        comandoRegistrarPedido.cliente,
+        comandoRegistrarPedido.fechaEntrega,
+        comandoRegistrarPedido.productos
       ),
     );
   }

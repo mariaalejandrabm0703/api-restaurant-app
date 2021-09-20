@@ -7,13 +7,13 @@ export class PedidoProductoEntidad {
   @PrimaryGeneratedColumn()
   id: number;
   
-  // @ManyToOne(() => PedidoEntidad, pedido => pedido.productos)
+  @ManyToOne(() => PedidoEntidad, pedido => pedido.productos)
   @Column()
-  idPedido: number;
+  pedido: number;
 
-  // @ManyToOne(() => ProductoEntidad, producto => producto.pedidos)
+  @ManyToOne(() => ProductoEntidad, producto => producto.pedidos)
   @Column()
-  idProducto: number;
+  producto: number;
 
   @Column()
   cantidad: number;

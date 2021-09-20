@@ -14,8 +14,8 @@ export class RepositorioPedidoProductoMysql implements RepositorioPedidoProducto
 
   async guardar(producto: PedidoProducto) {
     const entidad = new PedidoProductoEntidad();
-    entidad.idPedido = producto.idPedido;
-    entidad.idProducto = producto.idProducto;
+    // entidad.pedido = producto.pedido;
+    // entidad.producto = producto.producto;
     entidad.cantidad = producto.cantidad;
     entidad.precio = producto.precio;
     entidad.activo = producto.activo;
@@ -23,6 +23,6 @@ export class RepositorioPedidoProductoMysql implements RepositorioPedidoProducto
   }
 
   async eliminar(id: number){
-    await this.repositorio.delete({idPedido: id});
+    await this.repositorio.delete({pedido: id});
   }
 }

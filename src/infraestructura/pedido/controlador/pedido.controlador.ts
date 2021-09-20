@@ -30,27 +30,27 @@ export class PedidoControlador {
     @Body() comandoRegistrarPedido: ComandoRegistrarPedido,
   ): Promise<number> {
     // se registra el nuevo pedido
-    const idPedido = await this._manejadorRegistrarPedido.ejecutar(
-      comandoRegistrarPedido,
-    );
-    for (
-      let index = 0;
-      index < comandoRegistrarPedido.productos.length;
-      index++
-    ) {
-      const element = comandoRegistrarPedido.productos[index];
+    // const idPedido = await this._manejadorRegistrarPedido.ejecutar(
+    //   comandoRegistrarPedido,
+    // );
+    // for (
+    //   let index = 0;
+    //   index < comandoRegistrarPedido.productos.length;
+    //   index++
+    // ) {
+    //   const element = comandoRegistrarPedido.productos[index];
 
-      const prod = new ComandoRegistrarPedidoProducto();
-      prod.idPedido = idPedido;
-      prod.idProducto = element.idProducto;
-      prod.cantidad = element.cantidad;
-      prod.precio = element.precio;
-      prod.activo = '1';
+    //   const prod = new ComandoRegistrarPedidoProducto();
+    //   prod.pedido = idPedido;
+    //   prod.producto = element.producto;
+    //   prod.cantidad = element.cantidad;
+    //   prod.precio = element.precio;
+    //   prod.activo = '1';
 
-      // se adicionan los productos al pedido
-      await this._manejadorRegistrarPedidoProducto.ejecutar(prod);
-    }
-    return idPedido;
+    //   // se adicionan los productos al pedido
+    //   await this._manejadorRegistrarPedidoProducto.ejecutar(prod);
+    // }
+    return 0;
   }
 
   @Put(':id')
@@ -60,61 +60,50 @@ export class PedidoControlador {
     @Body() comandoRegistrarPedido: ComandoRegistrarPedido,
   ) {
     // se valida existencia del pedido
-    const pedido = await this._manejadorListarPedido.buscar(params.id);
+    // const pedido = await this._manejadorListarPedido.buscar(params.id);
 
-    if (pedido) {
-      // eliminar los productos
-      await this._manejadorRegistrarPedidoProducto.eliminar(params.id);
+    // if (pedido) {
+    //   // eliminar los productos
+    //   await this._manejadorRegistrarPedidoProducto.eliminar(params.id);
 
-      // actualiza informacion del pedido
-      await this._manejadorRegistrarPedido.actualizar(
-        params.id,
-        comandoRegistrarPedido,
-      );
+    //   // actualiza informacion del pedido
+    //   await this._manejadorRegistrarPedido.actualizar(
+    //     params.id,
+    //     comandoRegistrarPedido,
+    //   );
 
-      if (comandoRegistrarPedido.activo === '1') {
-        // adicionar los nuevos productos
-        for (
-          let index = 0;
-          index < comandoRegistrarPedido.productos.length;
-          index++
-        ) {
-          const element = comandoRegistrarPedido.productos[index];
+    //   if (comandoRegistrarPedido.activo === '1') {
+    //     // adicionar los nuevos productos
+    //     for (
+    //       let index = 0;
+    //       index < comandoRegistrarPedido.productos.length;
+    //       index++
+    //     ) {
+    //       const element = comandoRegistrarPedido.productos[index];
 
-          const prod = new ComandoRegistrarPedidoProducto();
-          prod.idPedido = params.id;
-          prod.idProducto = element.idProducto;
-          prod.cantidad = element.cantidad;
-          prod.precio = element.precio;
-          prod.activo = '1';
+    //       const prod = new ComandoRegistrarPedidoProducto();
+    //       prod.pedido = params.id;
+    //       prod.producto = element.producto;
+    //       prod.cantidad = element.cantidad;
+    //       prod.precio = element.precio;
+    //       prod.activo = '1';
 
-          await this._manejadorRegistrarPedidoProducto.ejecutar(prod);
-        }
-      }
-    } else {
-      return {
-        mensaje: 'No se encontró pedido.',
-      };
-    }
-    return comandoRegistrarPedido;
+    //       await this._manejadorRegistrarPedidoProducto.ejecutar(prod);
+    //     }
+    //   }
+    // } else {
+    //   return {
+    //     mensaje: 'No se encontró pedido.',
+    //   };
+    // }
+    // return comandoRegistrarPedido;
   }
 
   @Get(':id')
   async buscarPedido(@Param() params): Promise<any> {
     // se busca el pedido
-    const pedido = await this._manejadorListarPedido.buscar(params.id);
+    // const pedido = await this._manejadorListarPedido.buscar(params.id);
 
-    // se buscan los productos
-    const productos = await this._manejadorListarPedidoProducto.buscar(
-      params.id,
-    );
-
-    // se forma la respuesta
-    const response = {
-      pedido: pedido,
-      productos: productos,
-    };
-
-    return response;
+    // return pedido;
   }
 }

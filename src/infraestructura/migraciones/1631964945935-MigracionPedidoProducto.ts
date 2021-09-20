@@ -17,13 +17,13 @@ export class MigracionPedidoProducto1631964945935 implements MigrationInterface 
                     generationStrategy: 'increment',
                   },
                   {
-                    name: 'idPedido',
-                    type: 'int',
+                    name: 'pedido',
+                    type: 'uuid',
                     isNullable: false,
                   },
                   {
-                    name: 'idProducto',
-                    type: 'int',
+                    name: 'producto',
+                    type: 'uuid',
                     isNullable: false,
                   },
                   {
@@ -55,7 +55,7 @@ export class MigracionPedidoProducto1631964945935 implements MigrationInterface 
             );
           }
           const foreignKey = new TableForeignKey({
-              columnNames: ["idPedido"],
+              columnNames: ["pedido"],
               referencedColumnNames: ["id"],
               referencedTableName: "pedido",
               onDelete: "CASCADE"
@@ -63,7 +63,7 @@ export class MigracionPedidoProducto1631964945935 implements MigrationInterface 
           await queryRunner.createForeignKey("pedido_producto", foreignKey)
 
           const foreignKey2 = new TableForeignKey({
-            columnNames: ["idProducto"],
+            columnNames: ["producto"],
             referencedColumnNames: ["id"],
             referencedTableName: "producto",
             onDelete: "CASCADE"

@@ -1,5 +1,7 @@
-import {  IsString, IsArray } from 'class-validator';
+import {  IsOptional, IsString, IsArray } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Cliente } from 'src/dominio/cliente/modelo/cliente';
+import { PedidoProducto } from 'src/dominio/pedido-producto/modelo/pedido-producto';
 
 export class ComandoRegistrarPedido {
  
@@ -7,8 +9,8 @@ export class ComandoRegistrarPedido {
   public precio: number;
 
   @IsString()
-  @ApiProperty({ example: '1' })
-  public idCliente: string;
+  @ApiProperty()
+  public cliente: Cliente;
 
   @IsString()
   @ApiProperty({ example: '1' })
@@ -18,10 +20,7 @@ export class ComandoRegistrarPedido {
   @ApiProperty({ example: '01/01/2021' })
   public fechaEntrega: string;
 
+  @IsOptional()
   @IsArray()
-  public productos: [{
-    idProducto: number,
-    cantidad: number,
-    precio: number
-  }]
+  public productos: PedidoProducto[];
 }

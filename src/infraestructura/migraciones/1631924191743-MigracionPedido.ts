@@ -17,8 +17,8 @@ export class MigracionRequest1631924191743 implements MigrationInterface {
               generationStrategy: 'increment',
             },
             {
-              name: 'idCliente',
-              type: 'int',
+              name: 'cliente',
+              type: 'uuid',
               isNullable: false,
             },
             {
@@ -50,7 +50,7 @@ export class MigracionRequest1631924191743 implements MigrationInterface {
       );
     }
     const foreignKey = new TableForeignKey({
-        columnNames: ["idCliente"],
+        columnNames: ["cliente"],
         referencedColumnNames: ["id"],
         referencedTableName: "cliente",
         onDelete: "CASCADE"

@@ -1,4 +1,6 @@
-import { Column, Entity,  PrimaryGeneratedColumn } from 'typeorm';
+import { ClienteEntidad } from 'src/infraestructura/cliente/entidad/cliente.entidad';
+import { PedidoProductoEntidad } from 'src/infraestructura/pedido-producto/entidad/pedido-producto.entidad';
+import { Column, Entity,  OneToMany,  PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity({ name: 'pedido' })
 export class PedidoEntidad {
@@ -8,8 +10,8 @@ export class PedidoEntidad {
   @Column()
   precio: number;
 
-  @Column()
-  idCliente: string;
+  @ManyToOne(() => ClienteEntidad, cliente => cliente.pedidos)
+  cliente: ClienteEntidad;
 
   @Column()
   activo: string;
@@ -17,6 +19,6 @@ export class PedidoEntidad {
   @Column()
   fechaEntrega: string;
 
-  // @OneToMany(()=> PedidoProductoEntidad, producto => producto.idPedido)
-  // productos: PedidoProductoEntidad[];
+  @OneToMany(()=> PedidoProductoEntidad, producto => producto.pedido)
+  productos: PedidoProductoEntidad[];
 }

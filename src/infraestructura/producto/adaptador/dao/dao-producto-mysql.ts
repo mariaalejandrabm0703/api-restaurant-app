@@ -21,10 +21,10 @@ export class DaoProductoMysql implements DaoProducto {
     return this.entityManager.query(
       `SELECT 	producto.descripcion descripcion, 
                   producto.precio precio, 
-                  COUNT(pedido_producto.idProducto) cantidad
+                  COUNT(pedido_producto.producto) cantidad
         FROM producto, pedido_producto
-        WHERE producto.id = pedido_producto.idProducto
-        GROUP BY pedido_producto.idProducto
+        WHERE producto.id = pedido_producto.producto
+        GROUP BY pedido_producto.producto
         LIMIT 0 , 5`,
     );
   }

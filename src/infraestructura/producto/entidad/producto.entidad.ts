@@ -18,6 +18,6 @@ export class ProductoEntidad {
   @Column()
   activo: string;
 
-  // @OneToMany(()=> PedidoProductoEntidad, producto => producto.idProducto)
-  // pedidos: PedidoProductoEntidad[];
+  @OneToMany(()=> PedidoProductoEntidad, producto => producto.producto)
+  pedidos: PedidoProductoEntidad[];
 }

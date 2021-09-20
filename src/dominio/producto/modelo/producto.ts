@@ -1,14 +1,19 @@
+
+import { PedidoProducto } from "src/dominio/pedido-producto/modelo/pedido-producto";
+
 export class Producto {
   readonly #descripcion: string;
   readonly #categoria: string;
   readonly #precio: number;
   readonly #activo: string;
+  readonly #productos: PedidoProducto[];
 
-  constructor(descripcion: string, categoria: string, precio: number, activo: string) {
+  constructor(descripcion: string, categoria: string, precio: number, activo: string, productos: PedidoProducto[]) {
     this.#descripcion = descripcion;
     this.#categoria = categoria;
     this.#precio = precio;
     this.#activo = activo;
+    this.#productos = productos;
   }
 
   get descripcion(): string {
@@ -24,4 +29,7 @@ export class Producto {
     return this.#activo;
   }
 
+  get productos(): PedidoProducto[] {
+    return this.#productos;
+  }
 }

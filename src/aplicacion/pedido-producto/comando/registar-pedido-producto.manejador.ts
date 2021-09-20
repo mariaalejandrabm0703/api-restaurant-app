@@ -10,8 +10,8 @@ export class ManejadorRegistrarPedidoProducto {
   async ejecutar(comandoRegistrarPedidoProducto: ComandoRegistrarPedidoProducto) {
     await this._servicioRegistrarPedidoProducto.ejecutar(
       new PedidoProducto(
-        comandoRegistrarPedidoProducto.idPedido,
-        comandoRegistrarPedidoProducto.idProducto,
+        comandoRegistrarPedidoProducto.pedido,
+        comandoRegistrarPedidoProducto.producto,
         comandoRegistrarPedidoProducto.cantidad,
         comandoRegistrarPedidoProducto.precio,
         comandoRegistrarPedidoProducto.activo
