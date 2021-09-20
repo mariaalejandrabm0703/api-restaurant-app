@@ -10,4 +10,7 @@ export class PedidoDto {
 
   @ApiProperty({ example: '1' })
   activo: string;
+
+  @ApiProperty({ example: '01/01/2021' })
+  fechaEntrega: string;
 }

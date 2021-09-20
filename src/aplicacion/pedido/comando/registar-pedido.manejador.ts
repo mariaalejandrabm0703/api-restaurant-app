@@ -12,12 +12,13 @@ export class ManejadorRegistrarPedido {
       new Pedido(
         comandoRegistrarPedido.precio,
         comandoRegistrarPedido.activo,
-        comandoRegistrarPedido.idCliente
+        comandoRegistrarPedido.idCliente,
+        comandoRegistrarPedido.fechaEntrega
       ),
     );
   }
 
   async actualizar(id: number, comandoRegistrarPedido: ComandoRegistrarPedido): Promise<number> {
-    return await this._servicioRegistrarPedido.actualizar(id, comandoRegistrarPedido.precio, comandoRegistrarPedido.activo);
+    return await this._servicioRegistrarPedido.actualizar(id, comandoRegistrarPedido.precio, comandoRegistrarPedido.activo, comandoRegistrarPedido.fechaEntrega);
   }
 }

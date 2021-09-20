@@ -15,6 +15,9 @@ export class PedidoEntidad {
   @Column()
   activo: string;
 
+  @Column()
+  fechaEntrega: string;
+
   // @OneToMany(()=> PedidoProductoEntidad, producto => producto.idPedido)
   // productos: PedidoProductoEntidad[];
 }

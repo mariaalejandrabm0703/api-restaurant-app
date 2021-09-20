@@ -14,6 +14,10 @@ export class ComandoRegistrarPedido {
   @ApiProperty({ example: '1' })
   public activo: string;
 
+  @IsString()
+  @ApiProperty({ example: '01/01/2021' })
+  public fechaEntrega: string;
+
   @IsArray()
   public productos: [{
     idProducto: number,

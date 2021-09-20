@@ -36,6 +36,11 @@ export class MigracionRequest1631924191743 implements MigrationInterface {
               type: 'datetime',
               isNullable: false,
               default: 'now()',
+            },            
+            {
+              name: 'fechaEntrega',
+              type: 'varchar(20)',
+              isNullable: false,
             },
           ],
         }),
