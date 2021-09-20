@@ -10,4 +10,8 @@ export class ManejadorListarProducto {
   async ejecutar(): Promise<ProductoDto[]> {
     return this._daoproducto.listar();
   }
+
+  async listarProductosVendidos(): Promise<ProductoDto[]> {
+    return this._daoproducto.listarProductosVendidos();
+  }
 }

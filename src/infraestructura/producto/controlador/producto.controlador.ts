@@ -12,4 +12,9 @@ export class ProductoControlador {
   async listar(): Promise<ProductoDto[]> {
     return this._manejadorListarProducto.ejecutar();
   }
+
+  @Get('/masvendidos')
+  async listarProductosVendidos(): Promise<ProductoDto[]> {
+    return this._manejadorListarProducto.listarProductosVendidos();
+  }
 }

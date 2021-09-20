@@ -16,4 +16,16 @@ export class DaoProductoMysql implements DaoProducto {
       'SELECT p.id, p.descripcion, p.precio, p.categoria FROM producto p WHERE p.activo = 1',
     );
   }
+
+  async listarProductosVendidos(): Promise<ProductoDto[]> {
+    return this.entityManager.query(
+      `SELECT 	producto.descripcion descripcion, 
+                  producto.precio precio, 
+                  COUNT(pedido_producto.idProducto) cantidad
+        FROM producto, pedido_producto
+        WHERE producto.id = pedido_producto.idProducto
+        GROUP BY pedido_producto.idProducto
+        LIMIT 0 , 5`,
+    );
+  }
 }
