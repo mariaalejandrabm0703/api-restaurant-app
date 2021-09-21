@@ -7,9 +7,6 @@ import { ClienteDto } from 'src/aplicacion/cliente/consulta/dto/cliente.dto';
 export class ManejadorListarCliente {
   constructor(private _daoUsuario: DaoCliente) {}
 
-  async ejecutar(): Promise<ClienteDto[]> {
-    return this._daoUsuario.listar();
-  }
   async buscar(id: number): Promise<ClienteDto> {
     return this._daoUsuario.buscar(id);
   }
