@@ -4,11 +4,11 @@ import { PedidoProducto } from "src/dominio/pedido-producto/modelo/pedido-produc
 export class Pedido {
   readonly #precio: number;
   readonly #activo: string;
-  readonly #cliente: Cliente;
+  readonly #cliente: number;
   readonly #fechaEntrega: string;
   readonly #productos: PedidoProducto[];
 
-  constructor(precio: number, activo: string, cliente: Cliente, fechaEntrega: string, productos: PedidoProducto[]) {
+  constructor(precio: number, activo: string, cliente: number, fechaEntrega: string, productos: PedidoProducto[]) {
     this.#precio = precio;
     this.#activo = activo;
     this.#cliente = cliente;
@@ -24,7 +24,7 @@ export class Pedido {
     return this.#activo;
   }
 
-  get cliente(): Cliente {
+  get cliente(): number {
     return this.#cliente;
   }
 

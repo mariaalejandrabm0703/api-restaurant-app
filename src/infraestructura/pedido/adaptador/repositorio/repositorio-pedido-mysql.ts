@@ -2,9 +2,11 @@ import { RepositorioPedido } from 'src/dominio/pedido/puerto/repositorio/reposit
 import { Pedido } from 'src/dominio/pedido/modelo/pedido';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PedidoEntidad } from '../../entidad/pedido.entidad';
-import { Repository } from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { ClienteEntidad } from 'src/infraestructura/cliente/entidad/cliente.entidad';
+import { PedidoProductoEntidad } from 'src/infraestructura/pedido-producto/entidad/pedido-producto.entidad';
+import { ProductoEntidad } from 'src/infraestructura/producto/entidad/producto.entidad';
 
 @Injectable()
 export class RepositorioPedidoMysql implements RepositorioPedido {
@@ -13,9 +15,11 @@ export class RepositorioPedidoMysql implements RepositorioPedido {
     private readonly repositorio: Repository<PedidoEntidad>,
   ) {}
 
-  async guardar(pedido: Pedido): Promise<number>{
+  async guardar(pedido: Pedido): Promise<number> {
+
     const entidad = new PedidoEntidad();
-    // entidad.cliente = new ClienteEntidad();
+    entidad.cliente = new ClienteEntidad();
+    entidad.cliente.id = pedido.cliente;
     entidad.precio = pedido.precio;
     entidad.activo = pedido.activo;
     entidad.fechaEntrega = pedido.fechaEntrega;
@@ -23,8 +27,17 @@ export class RepositorioPedidoMysql implements RepositorioPedido {
     return ped.id;
   }
 
-  async actualizar(id:number, precio: number, activo: string, fechaEntrega: string): Promise<number>{
-    await this.repositorio.update(id, {precio:precio, activo: activo, fechaEntrega: fechaEntrega});
+  async actualizar(
+    id: number,
+    precio: number,
+    activo: string,
+    fechaEntrega: string,
+  ): Promise<number> {
+    await this.repositorio.update(id, {
+      precio: precio,
+      activo: activo,
+      fechaEntrega: fechaEntrega,
+    });
     return id;
   }
 }

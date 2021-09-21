@@ -18,7 +18,7 @@ export class MigracionRequest1631924191743 implements MigrationInterface {
             },
             {
               name: 'cliente',
-              type: 'uuid',
+              type: 'int',
               isNullable: false,
             },
             {

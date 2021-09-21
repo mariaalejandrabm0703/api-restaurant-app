@@ -1,14 +1,11 @@
-import { Pedido } from "src/dominio/pedido/modelo/pedido";
-import { Producto } from "src/dominio/producto/modelo/producto";
-
 export class PedidoProducto {
-  readonly #pedido: Pedido;
-  readonly #producto: Producto;
+  readonly #pedido: number;
+  readonly #producto: number;
   readonly #cantidad: number;
   readonly #precio: number;
   readonly #activo: string;
 
-  constructor(pedido: Pedido, producto: Producto, cantidad: number, precio: number, activo: string) {
+  constructor(pedido: number, producto: number, cantidad: number, precio: number, activo: string) {
     this.#pedido = pedido;
     this.#producto = producto;
     this.#cantidad = cantidad;
@@ -16,11 +13,11 @@ export class PedidoProducto {
     this.#activo = activo;
   }
 
-  get pedido(): Pedido {
+  get pedido(): number {
     return this.#pedido;
   }
 
-  get producto(): Producto {
+  get producto(): number {
     return this.#producto;
   }
 

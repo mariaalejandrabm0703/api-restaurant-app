@@ -1,6 +1,5 @@
-import {  IsOptional, IsString, IsArray } from 'class-validator';
+import {  IsOptional, IsString, IsArray, IsNumber } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { Cliente } from 'src/dominio/cliente/modelo/cliente';
 import { PedidoProducto } from 'src/dominio/pedido-producto/modelo/pedido-producto';
 
 export class ComandoRegistrarPedido {
@@ -8,9 +7,9 @@ export class ComandoRegistrarPedido {
   @ApiProperty({ example: 500})
   public precio: number;
 
-  @IsString()
+  @IsNumber()
   @ApiProperty()
-  public cliente: Cliente;
+  public cliente: number;
 
   @IsString()
   @ApiProperty({ example: '1' })

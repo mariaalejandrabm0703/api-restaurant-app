@@ -1,5 +1,5 @@
 import { PedidoProductoEntidad } from 'src/infraestructura/pedido-producto/entidad/pedido-producto.entidad';
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
 
 @Entity({ name: 'producto' })
 export class ProductoEntidad {
@@ -18,6 +18,6 @@ export class ProductoEntidad {
   @Column()
   activo: string;
 
-  @OneToMany(()=> PedidoProductoEntidad, producto => producto.producto)
-  pedidos: PedidoProductoEntidad[];
+  @OneToMany(()=> PedidoProductoEntidad, (pedidosProductos: PedidoProductoEntidad ) => pedidosProductos.producto)
+  pedidosProductos: Array<PedidoProductoEntidad>;
 }

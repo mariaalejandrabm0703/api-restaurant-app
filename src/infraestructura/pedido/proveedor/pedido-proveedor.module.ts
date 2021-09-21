@@ -23,7 +23,7 @@ import { PedidoEntidad } from '../entidad/pedido.entidad';
     ServicioRegistrarPedido,
     ManejadorRegistrarPedido,
     ManejadorListarPedido,
-    RepositorioPedido,
+    RepositorioPedido,   
     DaoPedido,
   ],
 })
