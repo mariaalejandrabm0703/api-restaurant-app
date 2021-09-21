@@ -1,4 +1,3 @@
-import { Cliente } from "src/dominio/cliente/modelo/cliente";
 import { PedidoProducto } from "src/dominio/pedido-producto/modelo/pedido-producto";
 
 export class Pedido {

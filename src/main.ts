@@ -16,8 +16,8 @@ async function bootstrap() {
   app.useGlobalFilters(new FiltroExcepcionesDeNegocio(logger));
 
   const swaggerOptions = new DocumentBuilder()
-    .setTitle('Bloque Arquitectura Hexagonal Node')
-    .setDescription('Bloque que hace uso de Nest.js para la creación de API\'s con Node.js')
+    .setTitle('Gestion de ventas de un restaurante')
+    .setDescription('App que hace uso de Nest.js para la creación de API\'s con Node.js')
     .setVersion('1.0')
     .build();
 
