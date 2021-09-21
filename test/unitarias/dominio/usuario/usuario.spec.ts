@@ -16,5 +16,6 @@ describe('Usuario', () => {
 
     expect(usuario.nombre).toEqual('juan');
     expect(usuario.clave).toEqual('4123');
+    expect(typeof(usuario.fechaCreacion)).toEqual(typeof(new Date()));
   });
 });

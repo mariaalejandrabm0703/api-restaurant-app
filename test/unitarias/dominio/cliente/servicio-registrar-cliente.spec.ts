@@ -28,7 +28,7 @@ describe('ServicioRegistrarCliente', () => {
     ).rejects.toThrow('El usuario Maria ya existe');
   });
 
-  it('si la identificación no existe guarda el usuario el repositorio', async () => {
+  it('si la identificación no existe guarda el cliente el repositorio', async () => {
     const cliente = new Cliente('Maria', '1090495415', '3042912566','maria@maria.com', '1', Array <Pedido>());
     repositorioClienteStub.existeNombreCliente.returns(Promise.resolve(false));
 
