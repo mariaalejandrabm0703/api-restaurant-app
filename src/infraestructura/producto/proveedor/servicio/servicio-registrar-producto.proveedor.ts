@@ -1,6 +1,6 @@
-import { RepositorioUsuario } from 'src/dominio/usuario/puerto/repositorio/repositorio-usuario';
-import { ServicioRegistrarUsuario } from 'src/dominio/usuario/servicio/servicio-registrar-usuario';
+import { RepositorioProducto } from 'src/dominio/producto/puerto/repositorio/repositorio-producto';
+import { ServicioRegistrarProducto } from 'src/dominio/producto/servicio/servicio-registrar-producto';
 
-export function servicioRegistrarUsuarioProveedor(repositorioUsuario: RepositorioUsuario) {
-  return new ServicioRegistrarUsuario(repositorioUsuario);
+export function servicioRegistrarProductoProveedor(repositorioProducto: RepositorioProducto) {
+  return new ServicioRegistrarProducto(repositorioProducto);
 }
