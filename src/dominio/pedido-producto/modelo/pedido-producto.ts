@@ -1,24 +1,24 @@
 export class PedidoProducto {
-  readonly #idPedido: number;
-  readonly #idProducto: number;
+  readonly #pedido: number;
+  readonly #producto: number;
   readonly #cantidad: number;
   readonly #precio: number;
   readonly #activo: string;
 
-  constructor(idPedido: number, idProducto: number, cantidad: number, precio: number, activo: string) {
-    this.#idPedido = idPedido;
-    this.#idProducto = idProducto;
+  constructor(pedido: number, producto: number, cantidad: number, precio: number, activo: string) {
+    this.#pedido = pedido;
+    this.#producto = producto;
     this.#cantidad = cantidad;
     this.#precio = precio;
     this.#activo = activo;
   }
 
-  get idPedido(): number {
-    return this.#idPedido;
+  get pedido(): number {
+    return this.#pedido;
   }
 
-  get idProducto(): number {
-    return this.#idProducto;
+  get producto(): number {
+    return this.#producto;
   }
 
   get cantidad(): number {

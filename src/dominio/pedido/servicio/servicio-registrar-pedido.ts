@@ -1,5 +1,6 @@
 import { RepositorioPedido } from '../puerto/repositorio/repositorio-pedido';
 import { Pedido } from '../modelo/pedido';
+import { RepositorioPedidoProducto } from 'src/dominio/pedido-producto/puerto/repositorio/repositorio-pedido-producto';
 export class ServicioRegistrarPedido {
 
   constructor(private readonly _repositorioPedido: RepositorioPedido) {

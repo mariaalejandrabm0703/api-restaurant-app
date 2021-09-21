@@ -1,14 +1,19 @@
+import { Cliente } from "src/dominio/cliente/modelo/cliente";
+import { PedidoProducto } from "src/dominio/pedido-producto/modelo/pedido-producto";
+
 export class Pedido {
   readonly #precio: number;
   readonly #activo: string;
-  readonly #idCliente: string;
+  readonly #cliente: number;
   readonly #fechaEntrega: string;
+  readonly #productos: PedidoProducto[];
 
-  constructor(precio: number, activo: string, idCliente:string, fechaEntrega: string) {
+  constructor(precio: number, activo: string, cliente: number, fechaEntrega: string, productos: PedidoProducto[]) {
     this.#precio = precio;
     this.#activo = activo;
-    this.#idCliente = idCliente;
+    this.#cliente = cliente;
     this.#fechaEntrega = fechaEntrega;
+    this.#productos = productos;
   }
 
   get precio(): number {
@@ -19,11 +24,15 @@ export class Pedido {
     return this.#activo;
   }
 
-  get idCliente(): string {
-    return this.#idCliente;
+  get cliente(): number {
+    return this.#cliente;
   }
 
   get fechaEntrega(): string {
     return this.#fechaEntrega;
+  }
+
+  get productos(): PedidoProducto[] {
+    return this.#productos;
   }
 }

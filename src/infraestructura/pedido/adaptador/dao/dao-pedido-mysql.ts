@@ -13,11 +13,11 @@ export class DaoPedidoMysql implements DaoPedido {
 
   async listar(): Promise<PedidoDto[]> {
     return this.entityManager.query(
-      'SELECT u.id, u.precio, u.idCliente, u.fechaEntrega, u.fechaCreacion FROM pedido u',
+      'SELECT u.id, u.precio, u.cliente, u.fechaEntrega, u.fechaCreacion FROM pedido u',
     );
   }
 
   async buscar(id: number): Promise<PedidoDto> {
-    return this.entityManager.findOne('pedido', id)
+    return this.entityManager.findOne('pedido', id, { relations: ["pedidosProductos"] })
   }
 }

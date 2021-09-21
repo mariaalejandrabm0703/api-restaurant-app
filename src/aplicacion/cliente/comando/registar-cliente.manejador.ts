@@ -14,7 +14,8 @@ export class ManejadorRegistrarCliente {
         comandoRegistrarCliente.identificacion,
         comandoRegistrarCliente.telefono,
         comandoRegistrarCliente.email,
-        comandoRegistrarCliente.activo,        
+        comandoRegistrarCliente.activo,    
+        comandoRegistrarCliente.pedidos    
       ),
     );
   }

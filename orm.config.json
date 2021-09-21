@@ -5,7 +5,7 @@
     "host":"localhost",
     "port":3306,
     "database":"restaurant",
-    "entities":["src/**/*.entidad{.ts,.js}"],
+    "entities":["dist/**/*.entidad{.ts,.js}"],
     "migrations": ["dist/infraestructura/migraciones/*.js"],
     "cli": {
         "migrationsDir": "src/infraestructura/migraciones"
