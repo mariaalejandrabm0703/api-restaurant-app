@@ -2,8 +2,7 @@ import { SinonStubbedInstance } from 'sinon';
 import { createStubObj } from '../../../util/create-object.stub';
 import { ServicioRegistrarCliente } from 'src/dominio/cliente/servicio/servicio-registrar-cliente';
 import { RepositorioCliente } from 'src/dominio/cliente/puerto/repositorio/repositorio-cliente';
-import { Cliente } from 'src/dominio/cliente/modelo/cliente';
-import { Pedido } from 'src/dominio/pedido/modelo/pedido';
+import ClienteBuilder from './clienteBuilder';
 
 
 describe('ServicioRegistrarCliente', () => {
@@ -23,13 +22,13 @@ describe('ServicioRegistrarCliente', () => {
 
     await expect(
       servicioRegistrarCliente.ejecutar(
-        new Cliente('Maria', '1090495415', '3042912566','maria@maria.com', '1', Array <Pedido>()),
+        new ClienteBuilder().ClienteBuilderWithValues()
       ),
     ).rejects.toThrow('El usuario Maria ya existe');
   });
 
   it('si la identificación no existe guarda el cliente el repositorio', async () => {
-    const cliente = new Cliente('Maria', '1090495415', '3042912566','maria@maria.com', '1', Array <Pedido>());
+    const cliente = new ClienteBuilder().ClienteBuilderWithValues()
     repositorioClienteStub.existeNombreCliente.returns(Promise.resolve(false));
 
     await servicioRegistrarCliente.ejecutar(cliente);

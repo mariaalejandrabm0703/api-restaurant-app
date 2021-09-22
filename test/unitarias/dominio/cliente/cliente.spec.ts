@@ -1,12 +1,10 @@
-import { Cliente } from 'src/dominio/cliente/modelo/cliente';
 import { Pedido } from 'src/dominio/pedido/modelo/pedido';
+import ClienteBuilder from './clienteBuilder';
 
 describe('Pruebas de Cliente', () => {
 
-  const _Cliente = Cliente as any;
-
   it('el cliente debería crearse bien', () => {
-    const cliente = new _Cliente('Maria', '1090495415', '3042912566','maria@maria.com', '1', Array <Pedido>());
+    const cliente = new ClienteBuilder().ClienteBuilderWithValues();
 
     expect(cliente.nombre).toEqual('Maria');
     expect(cliente.identificacion).toEqual('1090495415');
