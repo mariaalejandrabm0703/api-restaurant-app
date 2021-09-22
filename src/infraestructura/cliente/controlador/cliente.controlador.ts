@@ -14,7 +14,7 @@ export class ClienteControlador {
   @Post()
   @UsePipes(new ValidationPipe({ transform: true }))
   async crear(@Body() comandoRegistrarCliente: ComandoRegistrarCliente): Promise <number> {
-   return await this._manejadorRegistrarCliente.ejecutar(comandoRegistrarCliente);
+   return this._manejadorRegistrarCliente.ejecutar(comandoRegistrarCliente);
   }
 
   @Get(':id')

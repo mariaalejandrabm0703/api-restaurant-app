@@ -13,6 +13,6 @@ export class ServicioRegistrarCliente {
         `El usuario ${cliente.nombre} ya existe`,
       );
     }
-    return await this._repositorioCliente.guardar(cliente);
+    return this._repositorioCliente.guardar(cliente);
   }
 }

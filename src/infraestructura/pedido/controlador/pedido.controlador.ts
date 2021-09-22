@@ -50,7 +50,7 @@ export class PedidoControlador {
       // se adicionan los productos al pedido
       await this._manejadorRegistrarPedidoProducto.ejecutar(prod);
     }
-    return await this._manejadorListarPedido.buscar(pedido);
+    return this._manejadorListarPedido.buscar(pedido);
   }
 
   @Put(':id')
@@ -92,13 +92,12 @@ export class PedidoControlador {
         }
       }
     } 
-    return await this._manejadorListarPedido.buscar(params.id);
+    return this._manejadorListarPedido.buscar(params.id);
   }
 
   @Get(':id')
   async buscarPedido(@Param() params): Promise<any> {
     // se busca el pedido
-    const pedido = await this._manejadorListarPedido.buscar(params.id);
-    return pedido;
+    return this._manejadorListarPedido.buscar(params.id);
   }
 }

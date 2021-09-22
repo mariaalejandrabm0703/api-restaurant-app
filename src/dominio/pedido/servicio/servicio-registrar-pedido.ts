@@ -6,10 +6,10 @@ export class ServicioRegistrarPedido {
   }
 
   async ejecutar(pedido: Pedido): Promise<number> {    
-    return await this._repositorioPedido.guardar(pedido);
+    return this._repositorioPedido.guardar(pedido);
   }
 
   async actualizar(id:number, precio: number, activo: string, fechaEntrega: string): Promise<number> {    
-    return await this._repositorioPedido.actualizar(id, precio, activo, fechaEntrega);
+    return this._repositorioPedido.actualizar(id, precio, activo, fechaEntrega);
   }
 }

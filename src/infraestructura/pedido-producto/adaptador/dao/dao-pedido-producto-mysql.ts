@@ -18,7 +18,7 @@ export class DaoPedidoProductoMysql implements DaoPedidoProducto {
   }
 
   async buscar(id: number): Promise<any[]> {
-    return await this.entityManager.find('pedido_producto', {
+    return this.entityManager.find('pedido_producto', {
       where: { pedido: id },
     });
   }

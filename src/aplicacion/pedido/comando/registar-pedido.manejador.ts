@@ -17,14 +17,14 @@ export class ManejadorRegistrarPedido {
       comandoRegistrarPedido.fechaEntrega,
       comandoRegistrarPedido.productos,
     );
-    return await this._servicioRegistrarPedido.ejecutar(pedido);
+    return this._servicioRegistrarPedido.ejecutar(pedido);
   }
 
   async actualizar(
     id: number,
     comandoRegistrarPedido: ComandoRegistrarPedido,
   ): Promise<number> {
-    return await this._servicioRegistrarPedido.actualizar(
+    return this._servicioRegistrarPedido.actualizar(
       id,
       comandoRegistrarPedido.precio,
       comandoRegistrarPedido.activo,
