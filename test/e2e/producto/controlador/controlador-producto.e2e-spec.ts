@@ -12,7 +12,6 @@ import { ServicioRegistrarProducto } from 'src/dominio/producto/servicio/servici
 import { servicioRegistrarProductoProveedor } from 'src/infraestructura/producto/proveedor/servicio/servicio-registrar-producto.proveedor';
 import { ManejadorRegistrarProducto } from 'src/aplicacion/producto/comando/registar-producto.manejador';
 import { ManejadorListarProducto } from 'src/aplicacion/producto/consulta/list-producto.manejador';
-import { ComandoRegistrarProducto } from 'src/aplicacion/producto/comando/registrar-producto.comando';
 import { AppLogger } from 'src/infraestructura/configuracion/ceiba-logger.service';
 
 /**
@@ -30,7 +29,7 @@ describe('Pruebas al controlador de productos', () => {
    **/
   beforeAll(async () => {
     repositorioProducto = createStubObj<RepositorioProducto>(
-      [],
+      ['existeNombreProducto', 'guardar'],
       sinonSandbox,
     );
     daoProducto = createStubObj<DaoProducto>(
@@ -102,5 +101,4 @@ describe('Pruebas al controlador de productos', () => {
       .expect(HttpStatus.OK)
       .expect(productos);
   });
-
 });
