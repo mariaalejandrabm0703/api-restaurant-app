@@ -1,8 +1,8 @@
 import { SinonStubbedInstance } from 'sinon';
 import { createStubObj } from '../../../util/create-object.stub';
-import { PedidoProducto } from 'src/dominio/pedido-producto/modelo/pedido-producto';
 import { ServicioRegistrarPedidoProducto } from 'src/dominio/pedido-producto/servicio/servicio-registrar-pedido-producto';
 import { RepositorioPedidoProducto } from 'src/dominio/pedido-producto/puerto/repositorio/repositorio-pedido-producto';
+import PedidoProductoBuilder from './pedidoProductoBuilder';
 
 
 describe('ServicioRegistrarProducto', () => {
@@ -26,7 +26,7 @@ describe('ServicioRegistrarProducto', () => {
   });
 
   it('si se ejecuta con un pedidoProducto se guarda el producto el repositorio', async () => {
-    const producto = new PedidoProducto(1,1,1,1,'1');
+    const producto = new PedidoProductoBuilder().PedidoProductoBuilderWithValues();
 
     await servicioRegistrarPedidoProducto.ejecutar(producto);
 

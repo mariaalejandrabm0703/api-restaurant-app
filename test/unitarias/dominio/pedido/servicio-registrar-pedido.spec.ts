@@ -2,8 +2,7 @@ import { SinonStubbedInstance } from 'sinon';
 import { createStubObj } from '../../../util/create-object.stub';
 import { ServicioRegistrarPedido } from 'src/dominio/pedido/servicio/servicio-registrar-pedido';
 import { RepositorioPedido } from 'src/dominio/pedido/puerto/repositorio/repositorio-pedido';
-import { Pedido } from 'src/dominio/pedido/modelo/pedido';
-import { PedidoProducto } from 'src/dominio/pedido-producto/modelo/pedido-producto';
+import PedidoBuilder from './pedidoBuilder';
 
 
 describe('ServicioRegistrarPedido', () => {
@@ -19,7 +18,7 @@ describe('ServicioRegistrarPedido', () => {
 
   it('se debe ejecutar el guardado con los parametros correctos', async () => {
 
-    const pedido = new Pedido(1000, '1', 1, '01/01/2021',Array <PedidoProducto>());
+    const pedido = new PedidoBuilder().PedidoBuilderWithValues();
     await servicioRegistrarPedido.ejecutar(pedido);
 
     expect(repositorioPedidoStub.guardar.getCalls().length).toBe(1);

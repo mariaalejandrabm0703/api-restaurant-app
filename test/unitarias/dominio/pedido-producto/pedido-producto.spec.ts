@@ -1,12 +1,9 @@
-import { PedidoProducto } from 'src/dominio/pedido-producto/modelo/pedido-producto';
-
+import PedidoProductoBuilder from './pedidoProductoBuilder';
 
 describe('Pruebas de PedidoProducto', () => {
 
-  const _PedidoProducto = PedidoProducto as any;
-
   it('el pedidoProducto debería crearse bien', () => {
-    const producto = new _PedidoProducto(1,1,1,1,'1');
+    const producto = new PedidoProductoBuilder().PedidoProductoBuilderWithValues();
 
     expect(producto.pedido).toEqual(1);
     expect(producto.producto).toEqual(1);

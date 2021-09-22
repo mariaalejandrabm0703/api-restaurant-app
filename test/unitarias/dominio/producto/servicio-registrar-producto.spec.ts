@@ -2,9 +2,7 @@ import { SinonStubbedInstance } from 'sinon';
 import { createStubObj } from '../../../util/create-object.stub';
 import { ServicioRegistrarProducto } from 'src/dominio/producto/servicio/servicio-registrar-producto';
 import { RepositorioProducto } from 'src/dominio/producto/puerto/repositorio/repositorio-producto';
-import { Producto } from 'src/dominio/producto/modelo/producto';
-import { PedidoProducto } from 'src/dominio/pedido-producto/modelo/pedido-producto';
-
+import ProductoBuilder from './productoBuilder';
 
 describe('ServicioRegistrarProducto', () => {
 
@@ -23,13 +21,13 @@ describe('ServicioRegistrarProducto', () => {
 
     await expect(
       servicioRegistrarProducto.ejecutar(
-        new Producto('Pastas a la carbonara', 'Plato principal', 500, '1', Array <PedidoProducto>()),
+        new ProductoBuilder().ProductoBuilderWithValues()
       ),
     ).rejects.toThrow('El nombre de producto Pastas a la carbonara ya existe');
   });
 
   it('si la descripcion no existe guarda el producto el repositorio', async () => {
-    const producto = new Producto('Pastas a la carbonara', 'Plato principal', 500, '1', Array <PedidoProducto>());
+    const producto = new ProductoBuilder().ProductoBuilderWithValues();
     repositorioProductoStub.existeNombreProducto.returns(Promise.resolve(false));
 
     await servicioRegistrarProducto.ejecutar(producto);

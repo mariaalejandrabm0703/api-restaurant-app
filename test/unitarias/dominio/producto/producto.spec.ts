@@ -1,12 +1,10 @@
 import { PedidoProducto } from 'src/dominio/pedido-producto/modelo/pedido-producto';
-import { Producto } from 'src/dominio/producto/modelo/producto';
+import ProductoBuilder from './productoBuilder';
 
 describe('Pruebas de Producto', () => {
 
-  const _Producto = Producto as any;
-
   it('el producto debería crearse bien', () => {
-    const producto = new _Producto('Pastas a la carbonara', 'Plato principal', 500, '1', Array <PedidoProducto>());
+    const producto = new ProductoBuilder().ProductoBuilderWithValues();
 
     expect(producto.descripcion).toEqual('Pastas a la carbonara');
     expect(producto.categoria).toEqual('Plato principal');
