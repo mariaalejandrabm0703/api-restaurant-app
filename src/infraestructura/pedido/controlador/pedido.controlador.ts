@@ -13,7 +13,6 @@ import { ManejadorRegistrarPedido } from 'src/aplicacion/pedido/comando/registar
 import { ManejadorListarPedido } from 'src/aplicacion/pedido/consulta/listar-pedidos.manejador';
 import { ManejadorRegistrarPedidoProducto } from 'src/aplicacion/pedido-producto/comando/registar-pedido-producto.manejador';
 import { ComandoRegistrarPedidoProducto } from 'src/aplicacion/pedido-producto/comando/registrar-pedido-producto.comando';
-import { ManejadorListarPedidoProducto } from 'src/aplicacion/pedido-producto/consulta/listar-pedido-productos.manejador';
 import { PedidoDto } from 'src/aplicacion/pedido/consulta/dto/pedido.dto';
 
 @Controller('pedidos')

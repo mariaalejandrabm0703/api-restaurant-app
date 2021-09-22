@@ -1,7 +1,5 @@
-import { IsNumber, IsString, IsObject } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { Pedido } from 'src/dominio/pedido/modelo/pedido';
-import { Producto } from 'src/dominio/producto/modelo/producto';
 
 export class ComandoRegistrarPedidoProducto {
   @IsNumber()

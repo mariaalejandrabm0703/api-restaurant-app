@@ -2,11 +2,9 @@ import { RepositorioPedido } from 'src/dominio/pedido/puerto/repositorio/reposit
 import { Pedido } from 'src/dominio/pedido/modelo/pedido';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PedidoEntidad } from '../../entidad/pedido.entidad';
-import { Connection, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { ClienteEntidad } from 'src/infraestructura/cliente/entidad/cliente.entidad';
-import { PedidoProductoEntidad } from 'src/infraestructura/pedido-producto/entidad/pedido-producto.entidad';
-import { ProductoEntidad } from 'src/infraestructura/producto/entidad/producto.entidad';
 
 @Injectable()
 export class RepositorioPedidoMysql implements RepositorioPedido {
