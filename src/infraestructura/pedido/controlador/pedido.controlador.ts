@@ -34,12 +34,8 @@ export class PedidoControlador {
       comandoRegistrarPedido,
     );
     // se registran los productos
-    for (
-      let index = 0;
-      index < comandoRegistrarPedido.productos.length;
-      index++
-    ) {
-      const element = comandoRegistrarPedido.productos[index];
+    for (const value of comandoRegistrarPedido.productos) {
+      const element = value;
       const prod = new ComandoRegistrarPedidoProducto();
       prod.pedido = pedido;
       prod.producto = element.producto;
@@ -74,12 +70,8 @@ export class PedidoControlador {
 
       if (comandoRegistrarPedido.activo === '1') {
         // adicionar los nuevos productos
-        for (
-          let index = 0;
-          index < comandoRegistrarPedido.productos.length;
-          index++
-        ) {
-          const element = comandoRegistrarPedido.productos[index];
+        for (const value of comandoRegistrarPedido.productos) {
+          const element = value;
 
           const prod = new ComandoRegistrarPedidoProducto();
           prod.pedido = params.id;
