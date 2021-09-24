@@ -22,4 +22,8 @@ export class ComandoRegistrarProducto {
   @IsOptional()
   @IsArray()
   public productos: PedidoProducto[];
+
+  @IsString()
+  @ApiProperty({ example: 'aksjdhaksjdas.jpg' })
+  public img: string;
 }

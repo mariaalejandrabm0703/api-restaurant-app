@@ -40,6 +40,11 @@ export class MigracionProducto1631847402930 implements MigrationInterface {
               isNullable: false,
               default: 'now()',
             },
+            {
+              name: 'img',
+              type: 'text',
+              isNullable: false,
+            },
           ],
         }),
         false,

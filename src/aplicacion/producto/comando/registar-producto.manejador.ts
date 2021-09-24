@@ -15,6 +15,7 @@ export class ManejadorRegistrarProducto {
         comandoRegistrarProducto.precio,
         comandoRegistrarProducto.activo,
         comandoRegistrarProducto.productos,
+        comandoRegistrarProducto.img,
       ),
     );
   }

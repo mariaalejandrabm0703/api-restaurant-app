@@ -5,15 +5,17 @@ export class Producto {
   readonly #descripcion: string;
   readonly #categoria: string;
   readonly #precio: number;
-  readonly #activo: string;
+  readonly #activo: string;  
   readonly #productos: PedidoProducto[];
+  readonly #img: string;
 
-  constructor(descripcion: string, categoria: string, precio: number, activo: string, productos: PedidoProducto[]) {
+  constructor(descripcion: string, categoria: string, precio: number, activo: string, productos: PedidoProducto[], img: string) {
     this.#descripcion = descripcion;
     this.#categoria = categoria;
     this.#precio = precio;
     this.#activo = activo;
     this.#productos = productos;
+    this.#img = img;
   }
 
   get descripcion(): string {
@@ -31,5 +33,8 @@ export class Producto {
 
   get productos(): PedidoProducto[] {
     return this.#productos;
+  }
+  get img(): string {
+    return this.#img;
   }
 }

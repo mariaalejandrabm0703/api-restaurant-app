@@ -18,4 +18,7 @@ export class PedidoProductoDto {
 
   @ApiProperty({ example: '1' })
   activo: string;
+  
+  @ApiProperty({ example: 'asdasdas.jpg' })
+  img: string;
 }

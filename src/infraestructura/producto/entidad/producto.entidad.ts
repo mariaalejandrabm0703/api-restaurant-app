@@ -18,6 +18,9 @@ export class ProductoEntidad {
   @Column()
   activo: string;
 
+  @Column()
+  img: string;
+
   @OneToMany(()=> PedidoProductoEntidad, (pedidosProductos: PedidoProductoEntidad ) => pedidosProductos.producto)
   pedidosProductos: Array<PedidoProductoEntidad>;
 }
