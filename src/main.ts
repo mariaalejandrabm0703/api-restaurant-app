@@ -14,7 +14,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new FiltroExcepcionesDeNegocio(logger));
-
+  app.enableCors();
   const swaggerOptions = new DocumentBuilder()
     .setTitle('Gestion de ventas de un restaurante')
     .setDescription('App que hace uso de Nest.js para la creación de API\'s con Node.js')
