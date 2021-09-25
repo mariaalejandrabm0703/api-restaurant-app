@@ -18,6 +18,6 @@ export class DaoPedidoMysql implements DaoPedido {
   }
 
   async buscar(id: number): Promise<PedidoDto> {
-    return this.entityManager.findOne('pedido', id, { relations: ["pedidosProductos"] })
+    return this.entityManager.findOne('pedido', id, { relations: ["cliente","pedidosProductos"] })
   }
 }
