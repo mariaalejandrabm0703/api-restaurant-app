@@ -2,7 +2,6 @@ import { Body, Controller, Get, Post, UsePipes, ValidationPipe, Param } from '@n
 import { ComandoRegistrarCliente } from 'src/aplicacion/cliente/comando/registrar-cliente.comando';
 import { ManejadorRegistrarCliente } from 'src/aplicacion/cliente/comando/registar-cliente.manejador';
 import { ManejadorListarCliente } from 'src/aplicacion/cliente/consulta/listar-clientes.manejador';
-import { ClienteDto } from 'src/aplicacion/cliente/consulta/dto/cliente.dto';
 
 @Controller('clientes')
 export class ClienteControlador {
