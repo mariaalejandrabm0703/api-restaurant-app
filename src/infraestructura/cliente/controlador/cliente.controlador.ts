@@ -18,7 +18,7 @@ export class ClienteControlador {
   }
 
   @Get(':id')
-  async buscarCliente(@Param() params): Promise<ClienteDto> {
+  async buscarCliente(@Param() params): Promise<any> {
     return this._manejadorListarCliente.buscar(params.id);
   }
 

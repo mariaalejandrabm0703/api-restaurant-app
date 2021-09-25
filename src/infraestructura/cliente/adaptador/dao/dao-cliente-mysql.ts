@@ -16,7 +16,9 @@ export class DaoClienteMysql implements DaoCliente {
       'SELECT u.id, u.identificacion,u.activo, u.nombre, u.fechaCreacion FROM cliente u',
     );
   }
-  async buscar(id: number): Promise<ClienteDto> {
-    return this.entityManager.findOne('cliente',id);
+  async buscar(id: string): Promise<any> {
+    return this.entityManager.getRepository('cliente').find({
+      where: { identificacion: id },
+    });
   }
 }
