@@ -25,7 +25,7 @@ export class MigracionCrearProductos1631906459840
       'INSERT INTO `restaurant`.`producto`(`descripcion`,`categoria`,`precio`, `activo`, `fechaCreacion`, `img`) VALUES ("Crema de champiñones", "Sopas", 9, 1,now(), "https://pekinrestaurantedecomidachina.com/wp-content/uploads/2020/10/crema-de-champinones.jpg");',
     );
     await queryRunner.query(
-      'INSERT INTO `restaurant`.`producto`(`descripcion`,`categoria`,`precio`, `activo`, `fechaCreacion`, `img`) VALUES ("Sandría", "Bebidas", 11, 1,now(), "https://www.inmsol.com/wp-content/uploads/2010/08/Sangria.jpg");',
+      'INSERT INTO `restaurant`.`producto`(`descripcion`,`categoria`,`precio`, `activo`, `fechaCreacion`, `img`) VALUES ("Sangria", "Bebidas", 11, 1,now(), "https://i.blogs.es/29e3eb/sangria-20dap/450_1000.jpg");',
     );
     await queryRunner.query(
       'INSERT INTO `restaurant`.`producto`(`descripcion`,`categoria`,`precio`, `activo`, `fechaCreacion`, `img`) VALUES ("Pastas a la bolañesa", "Plato principal", 200, 1,now(), "https://www.unileverfoodsolutions.com.co/dam/global-ufs/mcos/nola/colombia/calcmenu/recipes/CO-recipes/pasta-dishes/pasta-en-salsa-bolognesa/main-header.jpg");',
