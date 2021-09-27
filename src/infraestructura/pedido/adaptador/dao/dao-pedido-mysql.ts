@@ -23,6 +23,7 @@ export class DaoPedidoMysql implements DaoPedido {
       .getRepository(PedidoEntidad)
       .createQueryBuilder('pedido')
       .leftJoinAndSelect('pedido.pedidosProductos', 'pedido_producto')
+      .leftJoinAndSelect('pedido.cliente', 'cliente')
       .leftJoinAndSelect('pedido_producto.producto', 'producto')
       .where('pedido.id = :id', { id: id })
       .getMany();
