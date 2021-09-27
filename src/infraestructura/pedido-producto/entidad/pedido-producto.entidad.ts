@@ -14,11 +14,11 @@ export class PedidoProductoEntidad {
   id: number;
 
   @ManyToOne(() => PedidoEntidad, (pedido: PedidoEntidad) => pedido.pedidosProductos)
-  @JoinColumn({ name: 'pedidoid' })
+  @JoinColumn({ name: 'pedidoId' })
   pedido: PedidoEntidad;
 
   @ManyToOne(() => ProductoEntidad,(producto: ProductoEntidad) => producto.pedidosProductos)
-  @JoinColumn({ name: 'productoid' })
+  @JoinColumn({ name: 'productoId' })
   producto: ProductoEntidad;
 
   @Column({ name: 'cantidad' })
