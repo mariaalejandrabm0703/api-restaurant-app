@@ -28,7 +28,6 @@ export class PedidoControlador {
   async crear(
     @Body() comandoRegistrarPedido: ComandoRegistrarPedido,
   ): Promise<PedidoDto> {
-
     // se registra el nuevo pedido
     const pedido = await this._manejadorRegistrarPedido.ejecutar(
       comandoRegistrarPedido,
@@ -68,22 +67,20 @@ export class PedidoControlador {
         comandoRegistrarPedido,
       );
 
-      if (comandoRegistrarPedido.activo === '1') {
-        // adicionar los nuevos productos
-        for (const value of comandoRegistrarPedido.productos) {
-          const element = value;
+      // adicionar los nuevos productos
+      for (const value of comandoRegistrarPedido.productos) {
+        const element = value;
 
-          const prod = new ComandoRegistrarPedidoProducto();
-          prod.pedido = params.id;
-          prod.producto = element.producto;
-          prod.cantidad = element.cantidad;
-          prod.precio = element.precio;
-          prod.activo = '1';
+        const prod = new ComandoRegistrarPedidoProducto();
+        prod.pedido = params.id;
+        prod.producto = element.producto;
+        prod.cantidad = element.cantidad;
+        prod.precio = element.precio;
+        prod.activo = '1';
 
-          await this._manejadorRegistrarPedidoProducto.ejecutar(prod);
-        }
+        await this._manejadorRegistrarPedidoProducto.ejecutar(prod);
       }
-    } 
+    }
     return this._manejadorListarPedido.buscar(params.id);
   }
 
