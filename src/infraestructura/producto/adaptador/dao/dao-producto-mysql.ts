@@ -24,6 +24,7 @@ export class DaoProductoMysql implements DaoProducto {
       FROM producto, pedido_producto
       WHERE producto.id = pedido_producto.productoId
       GROUP BY pedido_producto.productoId
+      ORDER BY cantidad DESC
       LIMIT 0 , 5`, 
     );
   }
